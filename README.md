@@ -64,6 +64,8 @@ end
 
 ## Example 4: Function with move command and calculate new position for move.
 Using the UR script control the robots movement, in the picture it can be seen that the robot is moved with a movej to a start position. This way of moving a UR robot eliminates the start function of robots, where a user actively needs to press on the teach pendant to move the robot into a position. At the same time, there are no safety net to help the programmer from putting the robot into an illigal position, except an error message.
+All mesurements are in meter [m] and the postions are based on the Base of the robot.
+
 ```
 def Move(x, y, z, rx, ry, rz, dX, dY, dZ):
 	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
@@ -121,6 +123,8 @@ end
 Have fun !! :) 
 
 ## Links
+
+[Universal robots - Seek with force page](https://www.universal-robots.com/articles/ur/programming/seek-using-force/)
 
 [Universal Robots download page](https://www.universal-robots.com/download)
  
