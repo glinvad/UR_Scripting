@@ -1,4 +1,4 @@
-# UR-Scripting by example (by Helge)
+# UR-Scripting by example
 
 A short GitHub to give en example how to write and use UR-script in the UR-Polyscope enviorment.
 
