@@ -27,7 +27,7 @@ When the function are loaded into the "BeforeStart" you can call it in the "Robo
 
 ## Example 1: Function for Control Outputs from a local script file.
 Hallo world in the HW world, is to control an LED, try to implement this code
-```:UR_Script\1_Ex_Led_blik.script
+```:https://github.com/glinvad/UR_Scripting/blob/main/UR_Script/1_Ex_Led_blik.script
 
 ```
 ![Example 1](Pic/ex1.png)
