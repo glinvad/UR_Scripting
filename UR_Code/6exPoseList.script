@@ -1,0 +1,107 @@
+def P6exPoseList():
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 = 0.0
+  thread Step_Counter_Thread_27697b7b_33cd_4354_b558_fd53d61c1bd4():
+    while (True):
+      step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 = step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_27697b7b_33cd_4354_b558_fd53d61c1bd4()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_gravity([0.0, 0.0, 9.82])
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  set_safety_mode_transition_hardness(1)
+  def Pose_x0_list_sub():
+    $ 20 "Pose_x0_list_sub" "noBreak"
+    $ 21 "pose_1≔p[-0.3,0.3,0.3,3.14,0.0,0.0]"
+    global pose_1=p[-0.3,0.3,0.3,3.14,0.0,0.0]
+    $ 22 "pose_2≔p[-0.2,0.3,0.3,3.14,0.0,0.0]"
+    global pose_2=p[-0.2,0.3,0.3,3.14,0.0,0.0]
+    $ 23 "pose_3≔p[-0.1,0.3,0.3,3.14,0.0,0.0]"
+    global pose_3=p[-0.1,0.3,0.3,3.14,0.0,0.0]
+    $ 24 "pose_4≔p[0.0,0.3,0.3,3.14,0.0,0.0]"
+    global pose_4=p[0.0,0.3,0.3,3.14,0.0,0.0]
+    $ 25 "pose_5≔p[0.1,0.3,0.3,3.14,0.0,0.0]"
+    global pose_5=p[0.1,0.3,0.3,3.14,0.0,0.0]
+    $ 26 "pose_6≔p[0.2,0.3,0.3,3.14,0.0,0.0]"
+    global pose_6=p[0.2,0.3,0.3,3.14,0.0,0.0]
+    $ 27 "pose_x0_list≔[pose_1, pose_2, pose_3, pose_4, pose_5, pose_6]"
+    global pose_x0_list=[pose_1, pose_2, pose_3, pose_4, pose_5, pose_6]
+  end
+  def Pose_x1_list_sub():
+    $ 28 "Pose_x1_list_sub" "noBreak"
+    $ 29 "pose_01≔p[-0.3,0.2,0.3,3.14,0.0,0.0]"
+    global pose_01=p[-0.3,0.2,0.3,3.14,0.0,0.0]
+    $ 30 "pose_02≔p[-0.2,0.2,0.3,3.14,0.0,0.0]"
+    global pose_02=p[-0.2,0.2,0.3,3.14,0.0,0.0]
+    $ 31 "pose_03≔p[-0.1,0.2,0.3,3.14,0.0,0.0]"
+    global pose_03=p[-0.1,0.2,0.3,3.14,0.0,0.0]
+    $ 32 "pose_04≔p[0.0,0.2,0.3,3.14,0.0,0.0]"
+    global pose_04=p[0.0,0.2,0.3,3.14,0.0,0.0]
+    $ 33 "pose_05≔p[0.1,0.2,0.3,3.14,0.0,0.0]"
+    global pose_05=p[0.1,0.2,0.3,3.14,0.0,0.0]
+    $ 34 "pose_06≔p[0.2,0.2,0.3,3.14,0.0,0.0]"
+    global pose_06=p[0.2,0.2,0.3,3.14,0.0,0.0]
+    $ 35 "pose_x1_list≔[pose_01, pose_02, pose_03, pose_04, pose_05, pose_06]"
+    global pose_x1_list=[pose_01, pose_02, pose_03, pose_04, pose_05, pose_06]
+  end
+  $ 1 "BeforeStart"
+  $ 2 "Script: 6_ex_Going_Though_a_list_of_poses.script"
+  def MoveLinear(pose_x0, pose_x1):
+  	i = 0
+  	while i < 6:
+  		movel(pose_x0[i], accel_mss, speed_ms, blend_radius_m)
+  		 sleep (0.5)
+  		movel(pose_x1[i], accel_mss, speed_ms, blend_radius_m)
+  		sleep (0.5)
+  		i = i + 1
+  	end
+  end
+  $ 3 "'Start position'"
+  # 'Start position'
+  $ 4 "x≔0.0"
+  global x=0.0
+  $ 5 "y≔-0.35"
+  global y=-0.35
+  $ 6 "z≔0.3"
+  global z=0.3
+  $ 7 "rx≔0"
+  global rx=0
+  $ 8 "ry≔3.14"
+  global ry=3.14
+  $ 9 "rz≔0"
+  global rz=0
+  $ 10 "'going to start position via movej'"
+  # 'going to start position via movej'
+  $ 11 "movej(p[x,y,z,rx,ry,rz],a=1,v=1)"
+  movej(p[x,y,z,rx,ry,rz],a=1,v=1)
+  while (True):
+    $ 12 "Robot Program"
+    $ 13 "Wait: 0.01"
+    sleep(0.01)
+    $ 14 "accel_mss≔0.3"
+    global accel_mss=0.3
+    $ 15 "speed_ms≔0.3"
+    global speed_ms=0.3
+    $ 16 "blend_radius_m≔0.1"
+    global blend_radius_m=0.1
+    $ 17 "Call Pose_x0_list_sub"
+    Pose_x0_list_sub()
+    $ 18 "Call Pose_x1_list_sub"
+    Pose_x1_list_sub()
+    $ 19 "MoveLinear(pose_x0_list, pose_x1_list)"
+    MoveLinear(pose_x0_list, pose_x1_list)
+  end
+end

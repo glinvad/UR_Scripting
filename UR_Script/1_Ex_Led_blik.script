@@ -1,0 +1,7 @@
+def BlinkLed(LED):
+	sleep(0.1)
+	set_digital_out(LED,True)
+	sleep(1.0)
+	set_digital_out(LED,False)
+	sleep(1.0)
+end

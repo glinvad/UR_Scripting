@@ -1,0 +1,9 @@
+ Program
+   BeforeStart
+     Script: 2_Ex_CountDown_Pause.script
+     Pause_in_msec≔1000
+   Robot Program
+     Set DO[0]=On
+     Pause(Pause_in_msec)
+     Set DO[0]=Off
+     Pause(Pause_in_msec)

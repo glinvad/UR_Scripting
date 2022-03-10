@@ -1,0 +1,70 @@
+def P4exMove():
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_safety_mode_transition_hardness(1)
+  set_gravity([0.0, 0.0, 9.82])
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  step_count_dc5b5707_4c01_4a71_91ff_ecb262bcdd5c = 0.0
+  thread Step_Counter_Thread_00170541_4724_4e7b_9aac_93bb12fa1e4f():
+    while (True):
+      step_count_dc5b5707_4c01_4a71_91ff_ecb262bcdd5c = step_count_dc5b5707_4c01_4a71_91ff_ecb262bcdd5c + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_00170541_4724_4e7b_9aac_93bb12fa1e4f()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  $ 1 "BeforeStart"
+  $ 2 "Script: 4_Ex_Move.script"
+  def Move(x, y, z, rx, ry, rz, dX, dY, dZ):
+  	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+  	sleep(1.0)
+  	x = x + dX
+  	y = y + dY
+  	z = z + dZ
+  	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+  	sleep(1.0)
+  end
+  $ 3 "'Start position'"
+  # 'Start position'
+  $ 4 "x≔0.0"
+  global x=0.0
+  $ 5 "y≔-0.2"
+  global y=-0.2
+  $ 6 "z≔0.3"
+  global z=0.3
+  $ 7 "rx≔0"
+  global rx=0
+  $ 8 "ry≔3.14"
+  global ry=3.14
+  $ 9 "rz≔0"
+  global rz=0
+  $ 10 "'going to start position via movej'"
+  # 'going to start position via movej'
+  $ 11 "movej(p[x,y,z,rx,ry,rz],a=1,v=1)"
+  movej(p[x,y,z,rx,ry,rz],a=1,v=1)
+  $ 12 "'movement on x,y,z (mesurements in [m])'"
+  # 'movement on x,y,z (mesurements in [m])'
+  $ 13 "deltaX≔0.25"
+  global deltaX=0.25
+  $ 14 "deltaY≔0"
+  global deltaY=0
+  $ 15 "deltaZ≔0"
+  global deltaZ=0
+  while (True):
+    $ 16 "Robot Program"
+    $ 17 "Wait: 0.01"
+    sleep(0.01)
+    $ 18 "Move(x,y,z,rx,ry,rz,deltaX,deltaY, deltaZ)"
+    Move(x,y,z,rx,ry,rz,deltaX,deltaY, deltaZ)
+  end
+end

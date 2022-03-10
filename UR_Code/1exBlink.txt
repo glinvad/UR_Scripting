@@ -1,0 +1,5 @@
+ Program
+   BeforeStart
+     Script: 1_Ex_Led_blik.script
+   Robot Program
+     BlinkLed(1)

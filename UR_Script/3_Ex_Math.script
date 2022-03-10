@@ -1,0 +1,5 @@
+def Calc(a, b):
+	c = a + b
+	global d = a - b
+	return c
+end

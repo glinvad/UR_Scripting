@@ -1,0 +1,12 @@
+ Program
+   BeforeStart
+     Script: 4_Ex_Move.script
+   Robot Program
+     Wait: 0.01
+     x≔0.0
+     y≔0.3
+     z≔0.3
+     rx≔0
+     ry≔3.14
+     rz≔0
+     Move(x,y,z,rx,ry,rz)

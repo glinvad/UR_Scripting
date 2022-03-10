@@ -1,0 +1,10 @@
+ Program
+   BeforeStart
+     Script: 3_Ex_Math.script
+   Robot Program
+     Wait: 0.01
+     var_1≔a
+     var_2≔b
+     Result=Calc(var_1, var_2)
+     var_3≔Result
+     var_4≔d

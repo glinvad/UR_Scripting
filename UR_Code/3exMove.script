@@ -1,0 +1,56 @@
+def unnamed():
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = 0.0
+  thread Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b():
+    while (True):
+      step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b()
+  set_gravity([0.0, 0.0, 9.82])
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  $ 1 "BeforeStart"
+  $ 2 "Script: 4_Ex_Move.script"
+  def Move(x, y, z, rx, ry, rz):
+  	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+  	sleep(1.0)
+  	x = x + 0.01
+  	y = y + 0.01
+  	z = z + 0.01
+  	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+  	sleep(1.0)
+  end
+  while (True):
+    $ 3 "Robot Program"
+    $ 4 "Wait: 0.01"
+    sleep(0.01)
+    $ 5 "x≔0.0"
+    global x=0.0
+    $ 6 "y≔0.3"
+    global y=0.3
+    $ 7 "z≔0.3"
+    global z=0.3
+    $ 8 "rx≔0"
+    global rx=0
+    $ 9 "ry≔3.14"
+    global ry=3.14
+    $ 10 "rz≔0"
+    global rz=0
+    $ 11 "Move(x,y,z,rx,ry,rz)"
+    Move(x,y,z,rx,ry,rz)
+  end
+end

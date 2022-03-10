@@ -1,0 +1,47 @@
+def unnamed():
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = 0.0
+  thread Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b():
+    while (True):
+      step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b()
+  set_gravity([0.0, 0.0, 9.82])
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  $ 1 "BeforeStart"
+  $ 2 "Script: 2_Ex_CountDown_Pause.script"
+  def Pause(counter):
+  	while 0 < counter:
+  		counter = counter - 1
+  		sleep(0.001)
+  	end
+  end
+  $ 3 "Pause_in_msec≔1000"
+  global Pause_in_msec=1000
+  while (True):
+    $ 4 "Robot Program"
+    $ 5 "Set DO[0]=On"
+    set_standard_digital_out(0, True)
+    $ 6 "Pause(Pause_in_msec)"
+    Pause(Pause_in_msec)
+    $ 7 "Set DO[0]=Off"
+    set_standard_digital_out(0, False)
+    $ 8 "Pause(Pause_in_msec)"
+    Pause(Pause_in_msec)
+  end
+end

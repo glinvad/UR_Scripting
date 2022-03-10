@@ -1,0 +1,6 @@
+def Pause(counter):
+	while 0 < counter:
+		counter = counter - 1
+		sleep(0.001)
+	end
+end

@@ -1,0 +1,48 @@
+def unnamed():
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = 0.0
+  thread Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b():
+    while (True):
+      step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 = step_count_94040c10_8f6e_4bf2_983d_7d65f3b16404 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_85698aef_d3c9_4689_a6ec_83aaf461009b()
+  set_gravity([0.0, 0.0, 9.82])
+  set_safety_mode_transition_hardness(1)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  $ 1 "BeforeStart"
+  $ 2 "Script: 3_Ex_Math.script"
+  def Calc(a, b):
+  	c = a + b
+  	global d = a - b
+  	return c
+  end
+  while (True):
+    $ 3 "Robot Program"
+    $ 4 "Wait: 0.01"
+    sleep(0.01)
+    $ 5 "var_1≔a"
+    global var_1=get_standard_analog_out(0)
+    $ 6 "var_2≔b"
+    global var_2=get_standard_analog_out(1)
+    $ 7 "Result=Calc(var_1, var_2)"
+    Result=Calc(var_1, var_2)
+    $ 8 "var_3≔Result"
+    global var_3=Result
+    $ 9 "var_4≔d"
+    global var_4=d
+  end
+end

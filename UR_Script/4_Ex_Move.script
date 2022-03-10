@@ -1,0 +1,9 @@
+def Move(x, y, z, rx, ry, rz, dX, dY, dZ):
+	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+	sleep(1.0)
+	x = x + dX
+	y = y + dY
+	z = z + dZ
+	movel(p[x, y, z, rx, ry, rz], a=1, v=1)
+	sleep(1.0)
+end

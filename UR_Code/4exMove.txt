@@ -1,0 +1,19 @@
+ Program
+   BeforeStart
+     Script: 4_Ex_Move.script
+     'Start position'
+     x≔0.0
+     y≔-0.2
+     z≔0.3
+     rx≔0
+     ry≔3.14
+     rz≔0
+     'going to start position via movej'
+     movej(p[x,y,z,rx,ry,rz],a=1,v=1)
+     'movement on x,y,z (mesurements in [m])'
+     deltaX≔0.25
+     deltaY≔0
+     deltaZ≔0
+   Robot Program
+     Wait: 0.01
+     Move(x,y,z,rx,ry,rz,deltaX,deltaY, deltaZ)

@@ -1,0 +1,70 @@
+def P5exIF():
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 = 0.0
+  thread Step_Counter_Thread_27697b7b_33cd_4354_b558_fd53d61c1bd4():
+    while (True):
+      step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 = step_count_0fe8d543_63e8_4bb4_8149_439ec9a82360 + 1.0
+      sync()
+    end
+  end
+  run Step_Counter_Thread_27697b7b_33cd_4354_b558_fd53d61c1bd4()
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_tool_communication(False, 115200, 0, 1, 1.5, 3.5)
+  set_tool_output_mode(0)
+  set_tool_digital_output_mode(0, 1)
+  set_tool_digital_output_mode(1, 1)
+  set_tool_voltage(0)
+  set_gravity([0.0, 0.0, 9.82])
+  set_target_payload(0.000000, [0.000000, 0.000000, 0.000000], [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000])
+  set_safety_mode_transition_hardness(1)
+  $ 1 "BeforeStart"
+  $ 2 "Script: 5_Ex_if.script"
+  def If_Check(INPUT, digiIN):
+  	if (digiIN == False):
+  		if (get_standard_digital_out(INPUT) == True):
+  			movel(p[0.10,-0.35,0.2,0.0,3.14,0.0], a=1, v=1)
+  		end
+  		if (get_standard_digital_out(INPUT) == False):
+  			movel(p[-0.10,-0.35,0.4,0.0,3.14,0.0], a=1, v=1)
+  		end
+  	elif (digiIN == True):
+  		if (get_standard_digital_in(INPUT) == True):
+  			movel(p[0.0,-0.35,0.2,0.0,3.14,0.0], a=1, v=1)
+  		end
+  		if (get_standard_digital_in(INPUT) == False):
+  			movel(p[0.0,-0.35,0.4,0.0,3.14,0.0], a=1, v=1)
+  		end
+  	end
+  end
+  $ 3 "'Start position'"
+  # 'Start position'
+  $ 4 "x≔0.0"
+  global x=0.0
+  $ 5 "y≔-0.35"
+  global y=-0.35
+  $ 6 "z≔0.3"
+  global z=0.3
+  $ 7 "rx≔0"
+  global rx=0
+  $ 8 "ry≔3.14"
+  global ry=3.14
+  $ 9 "rz≔0"
+  global rz=0
+  $ 10 "'going to start position via movej'"
+  # 'going to start position via movej'
+  $ 11 "movej(p[x,y,z,rx,ry,rz],a=1,v=1)"
+  movej(p[x,y,z,rx,ry,rz],a=1,v=1)
+  while (True):
+    $ 12 "Robot Program"
+    $ 13 "Wait: 0.01"
+    sleep(0.01)
+    $ 14 "If_Check(0,False)"
+    If_Check(0,False)
+  end
+end

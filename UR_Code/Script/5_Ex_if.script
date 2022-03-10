@@ -1,0 +1,17 @@
+def If_Check(INPUT, digiIN):
+	if (digiIN == False):
+		if (get_standard_digital_out(INPUT) == True):
+			movel(p[0.10,-0.35,0.2,0.0,3.14,0.0], a=1, v=1)
+		end
+		if (get_standard_digital_out(INPUT) == False):
+			movel(p[-0.10,-0.35,0.4,0.0,3.14,0.0], a=1, v=1)
+		end
+	elif (digiIN == True):
+		if (get_standard_digital_in(INPUT) == True):
+			movel(p[0.0,-0.35,0.2,0.0,3.14,0.0], a=1, v=1)
+		end
+		if (get_standard_digital_in(INPUT) == False):
+			movel(p[0.0,-0.35,0.4,0.0,3.14,0.0], a=1, v=1)
+		end
+	end
+end

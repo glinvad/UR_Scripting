@@ -1,0 +1,36 @@
+ Program
+   BeforeStart
+     Script: 6_ex_Going_Though_a_list_of_poses.script
+     'Start position'
+     x≔0.0
+     y≔-0.35
+     z≔0.3
+     rx≔0
+     ry≔3.14
+     rz≔0
+     'going to start position via movej'
+     movej(p[x,y,z,rx,ry,rz],a=1,v=1)
+   Robot Program
+     Wait: 0.01
+     accel_mss≔0.3
+     speed_ms≔0.3
+     blend_radius_m≔0.1
+     Call Pose_x0_list_sub
+     Call Pose_x1_list_sub
+     MoveLinear(pose_x0_list, pose_x1_list)
+   Pose_x0_list_sub
+     pose_1≔p[-0.3,0.3,0.3,3.14,0.0,0.0]
+     pose_2≔p[-0.2,0.3,0.3,3.14,0.0,0.0]
+     pose_3≔p[-0.1,0.3,0.3,3.14,0.0,0.0]
+     pose_4≔p[0.0,0.3,0.3,3.14,0.0,0.0]
+     pose_5≔p[0.1,0.3,0.3,3.14,0.0,0.0]
+     pose_6≔p[0.2,0.3,0.3,3.14,0.0,0.0]
+     pose_x0_list≔[pose_1, pose_2, pose_3, pose_4, pose_5, pose_6]
+   Pose_x1_list_sub
+     pose_01≔p[-0.3,0.2,0.3,3.14,0.0,0.0]
+     pose_02≔p[-0.2,0.2,0.3,3.14,0.0,0.0]
+     pose_03≔p[-0.1,0.2,0.3,3.14,0.0,0.0]
+     pose_04≔p[0.0,0.2,0.3,3.14,0.0,0.0]
+     pose_05≔p[0.1,0.2,0.3,3.14,0.0,0.0]
+     pose_06≔p[0.2,0.2,0.3,3.14,0.0,0.0]
+     pose_x1_list≔[pose_01, pose_02, pose_03, pose_04, pose_05, pose_06]

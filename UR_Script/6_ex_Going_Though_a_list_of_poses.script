@@ -1,0 +1,10 @@
+def MoveLinear(pose_x0, pose_x1):
+	i = 0
+	while i < 6:
+		movel(pose_x0[i], accel_mss, speed_ms, blend_radius_m)
+		 sleep (0.5)
+		movel(pose_x1[i], accel_mss, speed_ms, blend_radius_m)
+		sleep (0.5)
+		i = i + 1
+	end
+end
