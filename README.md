@@ -11,7 +11,7 @@ E-series: 5.11
 
 Robot platform : UR3 and UR3e
 
-You can either test it on the Offline simulator (download that from UR Homepage or [here (updated last 02022022)](https://ucndk-my.sharepoint.com/:f:/g/personal/hgr_ucn_dk/Ei5tqgtmOvFCqEWAVZdYMiABk1DubYUFo2dtYdXqdPlfDw?e=bKitJm)
+You can either test it on the Offline simulator (download that from UR Homepage or [here](https://ucndk-my.sharepoint.com/:f:/g/personal/hgr_ucn_dk/Ei5tqgtmOvFCqEWAVZdYMiABk1DubYUFo2dtYdXqdPlfDw?e=bKitJm)
 ## Code and examples
 Under the folder [UR Script](UR_Script) you will finde the script files used in the following examples.
 Under the folder [UR Code](UR_Code) you will finde a file with all files to load into polyscope.
