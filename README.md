@@ -7,7 +7,7 @@ All code have been tested on version polyscope version:
 
 CB3: 3.15.4
 
-E-series: 5.11
+E-series: 5.17
 
 Robot platform : UR3 and UR3e
 
@@ -128,4 +128,3 @@ Have fun !! :)
 
 [Universal Robots download page](https://www.universal-robots.com/download)
  
-[Zacobria Automation](https://www.zacobria.com/automation/) 
